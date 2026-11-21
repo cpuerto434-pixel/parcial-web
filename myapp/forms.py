@@ -1,0 +1,26 @@
+from django import forms
+from .models import Programa
+
+class ProgramaForm(forms.ModelForm):
+
+    class Meta:
+        model = Programa
+        fields = ['codigo', 'nombre', 'estado', 'facultad']
+
+        widgets = {
+            'codigo': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Ej: ING001'
+            }),
+            'nombre': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Nombre del programa'
+            }),
+            'estado': forms.CheckboxInput(attrs={
+                'class': 'form-check-input'
+            }),
+            'facultad': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Nombre de la facultad'
+            }),
+        }

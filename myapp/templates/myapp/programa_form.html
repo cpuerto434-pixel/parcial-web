@@ -1,0 +1,45 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}
+Crear Programa
+{% endblock %}
+
+{% block content %}
+
+<h2>Registrar nuevo programa</h2>
+
+<p>Complete los siguientes campos para registrar un programa universitario.</p>
+
+<form method="POST">
+    {% csrf_token %}
+
+    {{ form.non_field_errors }}
+
+    <div class="campo">
+        <label for="{{ form.codigo.id_for_label }}">Código:</label>
+        {{ form.codigo }}
+        {{ form.codigo.errors }}
+    </div>
+
+    <div class="campo">
+        <label for="{{ form.nombre.id_for_label }}">Nombre:</label>
+        {{ form.nombre }}
+        {{ form.nombre.errors }}
+    </div>
+
+    <div class="campo">
+        <label for="{{ form.estado.id_for_label }}">Estado activo:</label>
+        {{ form.estado }}
+        {{ form.estado.errors }}
+    </div>
+
+    <div class="campo">
+        <label for="{{ form.facultad.id_for_label }}">Facultad:</label>
+        {{ form.facultad }}
+        {{ form.facultad.errors }}
+    </div>
+
+    <button type="submit">Guardar programa</button>
+</form>
+
+{% endblock %}
